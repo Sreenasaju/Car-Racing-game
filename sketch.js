@@ -18,7 +18,12 @@ function setup(){
 
 function draw(){
    background("white");
- 
+    if(playerCount === 4){
+      game.updateState(1)  
+    }
+    if(gameState === 1){
+        game.play();
+    }
 }
 
 /*function readPosition(data){

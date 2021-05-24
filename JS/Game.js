@@ -7,7 +7,7 @@ class Game{
 
     getState(){
         var gameStateRef = database.ref('gameState');
-        gameStateRef.on("value",function(){     // anonymous function
+        gameStateRef.on("value",(data)=>{     // anonymous function
             gameState = data.val(); // gameState variable "="
         })
     }   
@@ -23,9 +23,14 @@ class Game{
      if(gameState===0) {
          form=new Form();
          form.display();
+         player=new Player();
+         player.getCount();
      }   
     }
-        
+      play(){
+          form.hide();
+          textSize(50);
+          text("Game Start",100,250);
+      }  
 }
 
-game.updateState(1);
