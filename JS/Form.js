@@ -28,6 +28,8 @@ class Form{
 
             player.name = this.input.value();
             playerCount += 1;
+            player.index = playerCount;
+            player.update();
             player.updateCount(playerCount);
            
             this.greeting.html("Welcome "+ player.name);
@@ -38,5 +40,17 @@ class Form{
 
 /*
     player --> name,rank,distance - database saved.  player - index
+
+    // gameState =0
+    // playerCount = 1
+
+    // player.index = 1
+    // player1
+    // ---- name : Raghuram
+    // ---- distance : 0
+
+    // player2
+    // ----name : ABCs
+    // =--- distance : 0
 
 */

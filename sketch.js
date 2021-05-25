@@ -2,7 +2,7 @@ var gameState= 0;
 var playerCount=0;
 var form,player,game;
 var database ,position;
-
+var allPlayers;
 
 
 
