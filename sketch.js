@@ -4,6 +4,16 @@ var form,player,game;
 var database ,position;
 var allPlayers;
 var cars,car1,car2,car3,car4;
+var carImg1,carImg2,carImg3,carImg4;
+var track;
+function preload(){
+    carImg1=loadImage('IMAGES/car1.png');
+    carImg2=loadImage('IMAGES/car2.png');
+    carImg3=loadImage('IMAGES/car3.png');
+    carImg4=loadImage('IMAGES/car4.png');
+    track=loadImage('IMAGES/track.jpg');
+}
+
 
 
 function setup(){
@@ -23,9 +33,12 @@ function draw(){
     }
     if(gameState === 1){
         game.play();
+
+    }
+    if(gameState ===2){
+        game.end();
     }
 }
-
 /*function readPosition(data){
     position = data.val();
     
