@@ -52,7 +52,7 @@ class Game{
             
             for( var plr in allPlayers){
                 index = index+1;
-                x= x+200;
+                x= 200+(index*200)+allPlayers[plr].xPos;
                 y = displayHeight - allPlayers[plr].distance;
 
                 cars[index-1].x = x;
@@ -71,13 +71,36 @@ class Game{
                 // text(allPlayers[plr].name + " : " + allPlayers[plr].distance,120,display_position);
             }
           }
-          if(keyIsDown(UP_ARROW) && player.index!=null){
-            player.distance +=50;
-            player.update();
+
+
+
+
+
+          if(player.distance < 2200){
+            if(keyIsDown(38) && player.index !== null){
+                yVel += 0.9;
+                if(keyIsDown(37)){
+                    xVel -= 0.2;
+                }
+                if(keyIsDown(39)){
+                    xVel += 0.2;
+                }
+            }else if(keyIsDown(38) && yVel > 0 && player.index !== null){
+                yVel -= 0.1;
+                xVel *= 0.9;
+            }else{
+                yVel *= 0.985;
+                xVel *= 0.985;
+            }
           }
-          if(player.distance>4500){
-              gameState=2
-          }
+          
+           //move the car
+           player.distance += yVel;
+           yVel *= 0.98;
+           player.xPos += xVel;
+           xVel *= 0.985;
+           player.update();
+           //display sprites
           drawSprites();
       }  
         end(){

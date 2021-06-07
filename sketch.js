@@ -6,6 +6,8 @@ var allPlayers;
 var cars,car1,car2,car3,car4;
 var carImg1,carImg2,carImg3,carImg4;
 var track;
+var xVel;
+var yVel;
 function preload(){
     carImg1=loadImage('IMAGES/car1.png');
     carImg2=loadImage('IMAGES/car2.png');
@@ -19,7 +21,8 @@ function preload(){
 function setup(){
     createCanvas(displayWidth-100,displayHeight-30);
     // Creating connection with database.
-
+    xVel =0;
+    yVel =0;
     database = firebase.database();
     game=new Game()
     game.getState();
